@@ -8,7 +8,7 @@ from werkzeug.exceptions import NotFound
 class ODQuickView(http.Controller):
 
     @http.route(['/quick-view'], type='json', auth="public", website=True)
-    def product(self, product_id=None):
+    def get_quick_view_data(self, product_id=None):
         if product_id:
             product = request.env['product.template'].search([['id', '=', product_id]])
             values = {
